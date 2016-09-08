@@ -17,7 +17,7 @@ var result=histogram.slice(0,10);
 
 function makeTable(JQuery){
    var arr= $('#text').val();
-  var re= /\w+/g;
+  var re= /\w+/gi;
    var arr1=arr.match(re);
   var text= freq(arr1);
     var $table = $( "<tbody></tbody>" );
