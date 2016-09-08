@@ -20,11 +20,12 @@ var result=fre.slice(0,10);
 
 
 function makeTable(JQuery){
+  $('#tbody').empty();
    var arr= $('#text').val();
   var re= /\w+/g;
    var arr1=arr.match(re);
   var text= freq(arr1);
-    var $table = $( "<tbody></tbody>" );
+    var $table = $( "<tbody id='tbody'></tbody>" );
 
 for ( var i = 0; i < text.length; i++ ) {
     var emp = text[i];
