@@ -1,23 +1,27 @@
 
 function freq(arr){
-var histogramMap = {};
-for(var i=0, len=arr.length; i<len; i++){
-  var key = arr[i];
-  histogramMap[key] = (histogramMap[key] || 0) + 1;
+ var sorted = [];
+for (var i = 0; i < arr.length; i++) {
+    sorted.push(arr[i].toLowerCase());
+}
+var map = {};
+for(var i=0; i<sorted.length; i++){
+  var key = sorted[i];
+  map[key] = (map[key] || 0) + 1;
 }
 
-var histogram = [];
-for(key in histogramMap) histogram.push({key: key, freq: histogramMap[key]});
+var fre = [];
+for(key in map) fre.push({key: key, freq: map[key]});
 
-histogram.sort(function(a,b){return b.freq - a.freq})
-var result=histogram.slice(0,10);
+fre.sort(function(a,b){return b.freq - a.freq})
+var result=fre.slice(0,10);
   return result;
 }
 
 
 function makeTable(JQuery){
    var arr= $('#text').val();
-  var re= /\w+/gi;
+  var re= /\w+/g;
    var arr1=arr.match(re);
   var text= freq(arr1);
     var $table = $( "<tbody></tbody>" );
